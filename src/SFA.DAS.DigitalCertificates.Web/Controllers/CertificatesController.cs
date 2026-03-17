@@ -240,6 +240,13 @@ namespace SFA.DAS.DigitalCertificates.Web.Controllers
             return View(sharingInfo);
         }
 
+        [HttpHead("sharing/{sharingLinkCode}/check-code")]
+        [AllowAnonymous]
+        public IActionResult CheckQualificationHead(Guid sharingLinkCode)
+        {
+            return Ok();
+        }
+
         [HttpPost("sharing/{sharingLinkCode}/check-code", Name = CheckQualificationRoutePost)]
         [AllowAnonymous]
         public async Task<IActionResult> CheckQualificationPost(Guid sharingLinkCode)
